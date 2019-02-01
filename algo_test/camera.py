@@ -7,6 +7,9 @@ class Camera :
         self.camera_extrinsics = SE3.SE3()
         self.camera_intrinsics = CameraIntrinsics()
 
+    def GetTranslation(self):
+        return self.camera_extrinsics
+
     def SetTranlation(self, t):
         self.camera_extrinsics.SetTranslation(t)
 

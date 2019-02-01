@@ -12,3 +12,11 @@ class Rig:
     def AddCamera(self, camera_struct):
         self.camereas[self.max_camera_idx] = camera_struct
         self.max_camera_idx += 1
+
+    def GenerateCameraInGlobalCoords(self, camera_idx):
+        cur_cam = self.cameras[camera_idx]
+        rig_transform = self.transform
+        camera_local_transform = cur_cam.GetTransform()
+
+
+#    def ProjectPoint(self, camera_idx, p):

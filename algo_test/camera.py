@@ -19,5 +19,5 @@ class Camera :
 
 class CameraIntrinsics :
     def __init__(self):
-        self.camera_matrix = np.zeros((3,3))
+        self.camera_matrix = np.zeros((3, 3))
         self.distortion_coeffs = np.zeros(8)

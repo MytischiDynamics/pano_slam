@@ -25,3 +25,9 @@ class SE3:
     def get_rotation(self):
         return self.so3
 
+    def get_matrix(self):
+        bot_vec = np.array([0.0, 0.0, 0.0, 1.0])
+        ret_m = np.hstack((self.get_rotation().get_matrix(), np.transpose(self.get_translation())))
+        ret_m = np.vstack((ret_m, bot_vec))
+        return ret_m
+

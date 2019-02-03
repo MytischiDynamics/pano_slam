@@ -1,22 +1,27 @@
 import SE3
 import camera
 
+
 class Rig:
     def __init__(self):
         self.cameras = {}
         self.stereo_cameras = {}
-        self.max_camera_idx = 0
-        self.max_stereo_camera_idx = 0
+#       self.max_camera_idx = 0
+#       self.max_stereo_camera_idx = 0
         self.transform = SE3.SE3()
 
-    def AddCamera(self, camera_struct):
-        self.camereas[self.max_camera_idx] = camera_struct
-        self.max_camera_idx += 1
+    def add_camera(self, camera_struct, idx):
+        self.camereas[idx] = camera_struct
+#       self.max_camera_idx += 1
 
-    def GenerateCameraInGlobalCoords(self, camera_idx):
+    def generate_camera_in_global_coords(self, camera_idx):
         cur_cam = self.cameras[camera_idx]
         rig_transform = self.transform
-        camera_local_transform = cur_cam.GetTransform()
+        camera_local_transform = cur_cam.get_transform()
 
+#       TODO! Check multiplication sequence
+        cur_cam.set_transform(rig_transform * camera_local_transform)
+        return cur_cam
 
-#    def ProjectPoint(self, camera_idx, p):
+    def project_point_to_camera(self, camera_idx):
+        cur_cam = self.generate_camera_in_global_coords(camera_idx)

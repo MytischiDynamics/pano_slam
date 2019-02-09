@@ -15,6 +15,7 @@ class Point:
         return np.vstack((self.coords, np.array([1.0])))
 
     def set_homogeneous_coords(self, p):
+        self.is_homogeneous = True
         self.coords = p[:-1]
         self.coords = self.coords / p[-1]
 

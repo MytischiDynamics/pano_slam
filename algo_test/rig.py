@@ -25,3 +25,6 @@ class Rig:
 
     def project_point_to_camera(self, camera_idx):
         cur_cam = self.generate_camera_in_global_coords(camera_idx)
+
+    def get_indicies_list(self):
+        return list(self.cameras.keys())

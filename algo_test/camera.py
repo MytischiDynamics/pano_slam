@@ -68,7 +68,7 @@ class CameraIntrinsics:
         return self.camera_matrix
 
     def set_fx(self, fx):
-        self.camera_matrix[0 ,0] = fx
+        self.camera_matrix[0, 0] = fx
 
     def get_fx(self):
         return self.camera_matrix[0, 0]
@@ -77,7 +77,7 @@ class CameraIntrinsics:
         self.camera_matrix[1, 1] = fy
 
     def get_fy(self):
-        return self.camera_matrix[1,1]
+        return self.camera_matrix[1, 1]
 
     def set_cx(self, cx):
         self.camera_matrix[0, 2] = cx

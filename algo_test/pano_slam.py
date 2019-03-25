@@ -1,8 +1,5 @@
-import numpy as np
-#import rig
-import camera
-import SE3
-from SO3 import SO3
+import sys
+import slam_system
 
 '''
 def InitializeRig():
@@ -16,13 +13,10 @@ def InitializeRig():
 
 if __name__ == "__main__" :
     print("Testing Panorama SLAM")
-    rot_trans = SO3()
-    rot_trans.init_with_axis_angle(np.array([0.0, 0.0, 1.0]), np.pi / 4.0)
-    print(str(rot_trans.apply_to_vector(np.array([1.0, 0.0, 0.0]))))
-    new_rot_trans = rot_trans * rot_trans
-    print(str(new_rot_trans.apply_to_vector(np.array([1.0, 0.0, 0.0]))))
-    print(str(new_rot_trans.get_matrix()))
-#    transform = SE3.SO3()
-#    transform.init_with_axis_angle(0.1, np.array([1.0, 1.0, 1.0]))
-#    new_p = transform.apply_to_point(np.array([1.0, 1.0, 0.0]))
-#    print(str(new_p))
+    if len(sys.argv != 3) :
+        print("Usage: " + sys.argv[0] + " dataset_folder calibration_file")
+        exit(0)
+    camera_file = sys.argv[2]
+    dataset_folder = sys.argv[1]
+
+    pano_slam = slam_system()

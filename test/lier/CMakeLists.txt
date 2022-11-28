@@ -1,0 +1,3 @@
+add_executable(test_subgroups test_subgroups.cc)
+
+target_link_libraries(test_subgroups PUBLIC lier)

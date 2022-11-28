@@ -1,2 +1,1 @@
-DSO-based SLAM for panorama camera rig.
-Python sandbox.
+SLAM System for multiple cameras

@@ -3,7 +3,7 @@ project(pano C CXX)
 
 set(CMAKE_CXX_STANDARD 20)
 
-#include(dependencies.cmake)
+include(dependencies.cmake)
 
 add_subdirectory(src)
-add_subdirectory(test)
+#add_subdirectory(test)
